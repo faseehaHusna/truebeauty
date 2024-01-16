@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+  <link rel ="stylesheet"
+   href="https://fonts.googleapis.com/css?family=academy">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    
+* {box-sizing: border-box;}
+
+.row {
+  display: flex;
+}
+
+/* Create three equal columns that sits next to each other */
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
+.img-comp-container {
+  position: relative;
+  height: 200px; /*should be the same height as the images*/
+}
+
+.img-comp-img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow:hidden;
+}
+
+.img-comp-img img {
+  display:block;
+  vertical-align:middle;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index:9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+  width: 40px;
+  height: 40px;
+  background-color: #2196F3;
+  opacity: 0.7;
+  border-radius: 50%;
+}
+    
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("med skin.jpg");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:white;
+}
+
+
+.logo-small {
+                color: #f4511e;
+                font-size: 50px;
+              }
+              .logo {
+                color: #f4511e;
+                font-size: 200px;
+              }
+            .navbar {
+                margin-bottom: 0;
+                background-color:#6b440a;
+                z-index: 9999;
+                border: 0;
+                font-size: 12px !important;
+                line-height: 1.42857143 !important;
+                letter-spacing: 4px;
+                border-radius: 0;
+                font-family: Montserrat, sans-serif;
+              }
+              .navbar li a, .navbar .navbar-brand {
+                color: white !important;
+              }
+              .navbar-nav li a:hover, .navbar-nav li.active a {
+                color: black !important;
+                background-color: #fff !important;
+              }
+              .navbar-default .navbar-toggle {
+                border-color: transparent;
+                color: #fff !important;
+              }
+              .container1{
+                  background-color: whitesmoke;
+                  padding: 1em 2em 3em 4em;
+              }
+              .container-fluid{
+                  padding: 60px 50px;
+              }
+              .container2{
+                  background-color: #d2a860;
+                  text-align: center;
+                  padding: 1em 2em 3em 4em;
+              }
+              .container3{
+                  background-color: #d2a860;
+                  text-align: center;
+                  padding: 1em 2em 3em 4em;
+              }
+              .container4{
+                  background-color: #d2a860;
+                  text-align: center;
+                  padding: 1em 2em 3em 4em;
+              }
+              .container5{
+                  background-color: #d2a860;
+                  text-align: center;
+                  padding: 1em 2em 3em 4em;
+              }
+              
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Transparent black color */
+  color: white;
+  text-align: center;
+  padding: 1em 2em;
+  
+}
+
+
+
+</style>
+<script>
+function initComparisons() {
+  var x, i;
+  /*find all elements with an "overlay" class:*/
+  x = document.getElementsByClassName("img-comp-overlay");
+  for (i = 0; i < x.length; i++) {
+    /*once for each "overlay" element:
+    pass the "overlay" element as a parameter when executing the compareImages function:*/
+    compareImages(x[i]);
+  }
+  function compareImages(img) {
+    var slider, img, clicked = 0, w, h;
+    /*get the width and height of the img element*/
+    w = img.offsetWidth;
+    h = img.offsetHeight;
+    /*set the width of the img element to 50%:*/
+    img.style.width = (w / 2) + "px";
+    /*create slider:*/
+    slider = document.createElement("DIV");
+    slider.setAttribute("class", "img-comp-slider");
+    /*insert slider*/
+    img.parentElement.insertBefore(slider, img);
+    /*position the slider in the middle:*/
+    slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+    slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+    /*execute a function when the mouse button is pressed:*/
+    slider.addEventListener("mousedown", slideReady);
+    /*and another function when the mouse button is released:*/
+    window.addEventListener("mouseup", slideFinish);
+    /*or touched (for touch screens:*/
+    slider.addEventListener("touchstart", slideReady);
+    /*and released (for touch screens:*/
+    window.addEventListener("touchend", slideFinish);
+    function slideReady(e) {
+      /*prevent any other actions that may occur when moving over the image:*/
+      e.preventDefault();
+      /*the slider is now clicked and ready to move:*/
+      clicked = 1;
+      /*execute a function when the slider is moved:*/
+      window.addEventListener("mousemove", slideMove);
+      window.addEventListener("touchmove", slideMove);
+    }
+    function slideFinish() {
+      /*the slider is no longer clicked:*/
+      clicked = 0;
+    }
+    function slideMove(e) {
+      var pos;
+      /*if the slider is no longer clicked, exit this function:*/
+      if (clicked == 0) return false;
+      /*get the cursor's x position:*/
+      pos = getCursorPos(e)
+      /*prevent the slider from being positioned outside the image:*/
+      if (pos < 0) pos = 0;
+      if (pos > w) pos = w;
+      /*execute a function that will resize the overlay image according to the cursor:*/
+      slide(pos);
+    }
+    function getCursorPos(e) {
+      var a, x = 0;
+      e = (e.changedTouches) ? e.changedTouches[0] : e;
+      /*get the x positions of the image:*/
+      a = img.getBoundingClientRect();
+      /*calculate the cursor's x coordinate, relative to the image:*/
+      x = e.pageX - a.left;
+      /*consider any page scrolling:*/
+      x = x - window.pageXOffset;
+      return x;
+    }
+    function slide(x) {
+      /*resize the image:*/
+      img.style.width = x + "px";
+      /*position the slider:*/
+      slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+    }
+  }
+}
+</script>
+</head>
+<body>
+    
+    <header>
+            
+        
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+                <img src="logo.png" style="height:60px; position:static; left: 70px; border-radius: 50%;" alt="logo">
+
+      <a class="navbar-brand" href="#mainPaage"> TRUE BEAUTY</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="HOME.html">HOME</a></li>
+          <li><a href="makeup.html">MAKE-UP</a></li>
+          <li><a href="skincare.html">SKINCARE</a></li>
+          <li><a href="ContactUs.html">CONTACT US</a></li>
+        
+        
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+ </header>
+    
+  
+    
+    
+
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 style="font-size:50px">M e d i u m</h1>
+    
+  </div>
+</div>
+    
+    <div id="light" class="container-fluid" style="background-color: white">
+  <div class="row">
+      
+      <div class="col-sm-4">
+    <span>
+<div class="img-comp-container">
+  <div class="img-comp-img">
+    <img src="med before.jpg" width="200" height="300">
+  </div>
+  <div class="img-comp-img img-comp-overlay">
+    <img src="med after.jpg" width="200" height="300">
+  </div>
+</div>   
+    </span>
+    </div>
+    <div class="col-sm-6" >
+             <h1 style="color:brown;"> Medium Skin?</h1>
+      <h3>  typically refers to a moderate or intermediate skin tone that falls between very light and very dark. 
+          However, there is no universally accepted definition or standard for what constitutes medium skin,
+          as perceptions of skin tone can vary across different cultures and individuals. </h3><br>     
+    </div>
+
+  </div>
+</div>
+    
+    <div class="container2">
+        <h1 style="color:white" > Foundation and powder </h1>
+        
+        
+    </div>
+    
+    
+      <div>   
+    
+
+<div class="footer">
+  <p>'" Be confident with your skin "' |  &copy True Beauty website</p>
+</div>
+
+    </div>
+  
+
+<script>
+/*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+initComparisons();
+</script>
+
+ <div class="row">
+  <div class="column">
+    <img src="med foundation.jpg" alt="foundation" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="med compact.jpg" alt="compact" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="med conceal.jpg" alt="conceal" style="width:100%">
+  </div>
+</div>
+ 
+  <div class="container3">
+        <h1 style="color:white" > Cheek part </h1>
+        
+        
+    </div>
+<div class="row">
+  <div class="column">
+    <img src="med contour.jpg" alt="contour" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="med blush.jpg" alt="blusher" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="light highlight.jpg" alt="highlight" style="width:100%">
+  </div>
+</div>
+
+<div class="container4">
+        <h1 style="color:white" > Eyes part </h1>
+      </div>
+
+<div class="row">
+  <div class="column">
+    <img src=" mascara.jpg" alt="mascara" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="med eyeshadow.jpg" alt="eyeshadow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="med eyeliner.jpg" alt="eyeliner" style="width:100%">
+  </div>
+</div>
+
+<div class="container5">
+        <h1 style="color:white" > Lips part </h1>
+      </div>
+
+<div class="row">
+  <div class="column">
+    <img src="med lipmate.jpg" alt="lipmate" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="medium lip.jpg" alt="lipstick" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="med liptint.jpg" alt="liptint" style="width:100%">
+    
+  </div>
+  </div>
+</div>
+
+</body>
+</html>

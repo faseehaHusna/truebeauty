@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel ="stylesheet"href="https://fonts.googleapis.com/css?family=simpson">
+  <style>
+      
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: black;
+  }
+  h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }  
+  .jumbotron {
+    background-color: #ede3d7;
+    color: #fff;
+    padding: 50px 40px;
+    font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+    padding: 60px 50px;
+  }
+  .bg-grey {
+    background-color: #ede3d7;
+  }
+  .logo-small {
+    color: #f4511e;
+    font-size: 50px;
+  }
+  .logo {
+    color: #f4511e;
+    font-size: 200px;
+  }
+  .slideshow{
+      background-color: #ede3d7;
+  }
+  * {
+      box-sizing: border-box
+  }
+        body {
+            font-family: Verdana, sans-serif; margin:0
+        }
+        .mySlides {
+            display: none
+        }
+        img {
+            vertical-align: middle;
+        }
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  background-color:#ede3d7; 
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text1 {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: black;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 60s;
+}
+
+@keyframes fade {
+  from {opacity: 1} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+  .thumbnail.center{
+    padding: 0 0 20px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #f4511e;
+  }
+  .carousel-indicators li {
+    border-color: #f4511e;
+  }
+  .carousel-indicators li.active {
+    background-color: #f4511e;
+  }
+  .item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+  }
+  .item span {
+    font-style: normal;
+  }
+  .all-browsers {
+  margin: 0;
+  padding: 5px;
+  background-color:beige ;
+  
+}
+
+.all-browsers > h1, .browser {
+  margin: 10px;
+  padding: 30px;
+  
+}
+
+.browser {
+  background: white;
+ 
+}
+
+.browser > h2, p {
+  margin: 4px;
+  font-size: 90%;
+  color: black;
+}
+
+  .panel {
+    border: 1px solid #f4511e; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+    border: 1px solid #f4511e;
+    background-color: #fff !important;
+    color: #f4511e;
+  }
+  .panel-heading {
+    color: #fff !important;
+    background-color: #f4511e !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+    background-color: white !important;
+  }
+  .panel-footer h3 {
+    font-size: 32px;
+  }
+  .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+  }
+  .panel-footer .btn {
+    margin: 15px 0;
+    background-color: #f4511e;
+    color: #fff;
+  }
+  .navbar {
+    margin-bottom: 0;
+    background-color:#6b440a;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: white !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: black !important;
+    background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+  }
+  .thumbnail {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+
+}
+  .text {
+  background-color: whitesmoke;
+  color: black;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.thumbnail:hover .image {
+    background-color: black;
+  opacity: 0.3;
+}
+
+.thumbnail:hover .middle {
+  opacity: 1;
+}
+.head-important{
+    font-family: 'shadow',Serif;
+                font-size: 48px;
+}
+footer { 
+           background-color: rgba(0, 0, 0, 0.7);
+           text-align: center;
+           color: white;
+            padding: 1em 2em 3em 4em;
+                       
+                      }
+  .slideanim {visibility:hidden;}
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+  .jumbotron{
+     border-style:double ; 
+     
+  }
+  
+  img.jumbotron{
+       border-style:double ;
+  }
+  </style>
+</head>
+<body id="mainPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    
+         
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+        <img src="pic2.png" style="height:60px; position:static; left: 70px; border-radius: 50%;" alt="logo">
+      <a class="navbar-brand" href="#mainPaage"> TRUE BEAUTY</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="HOME.html">HOME</a></li>
+          <li><a href="makeup.html">MAKE-UP</a></li>
+          <li><a href="skincare.html">SKINCARE</a></li>
+          <li><a href="ContactUs.html">CONTACT US</a></li>
+        
+        
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+<div>  
+<div class="jumbotron text-center">
+    <img src="pic2.png" class="img-responsive margin" style="display:inline" alt="PIC2" width="600" height="500">
+
+
+</div>
+</div>
+   
+
+<!-- About Company section -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>ABOUT US !</h2><br>
+      <h> TrueBeauty.co sites are designed to provide information, tips, and products related to beauty,
+        skincare, makeup. TrueBeauty.co websites often target consumers looking for information about
+        specific products, reviews, and recommendations. These individuals may be seeking guidance on
+        what products to purchase based on their skin type, preferences, or specific beauty concerns. </h4><br>     
+    </div>
+<div class="col-sm-4">
+    <span>
+         <img src="pic3.jpg" class="img-responsive" style="display:inline" alt="pic3" width="800" height="500">
+    </span>
+    </div>
+  </div>
+</div>
+
+
+<!-- slideshow -->
+<div class="slideshow">
+<div class="slideshow-container" style="padding: 1em 2em;">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="imgA.png" style="width:100%">
+  
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="imgB.png" style="width:100%">
+</div>
+
+    <div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <video width=100% controls>
+      <source src="skincare-tips.mp4" type="video/mp4" style="width:100%">
+  </video>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+
+</div>
+
+</div>
+
+<!-- important -->
+
+<div>
+<article class="all-browsers" style="color: black">
+    <h1  class="head-important"style="text-align:center">IMPORTANT OF MAKE-UP</h1>
+  <article class="browser">
+      <h2><bold>Help you feel more confident</bold></h2>
+    <p>Smooth on a bold red lipstick, and you might just understand why makeup is important. The right products can really boost your confidence. Even if a dramatic lip color isn’t for you, applying a few subtle essentials can help you feel more pulled-together and, in turn, more confident</p>
+  </article>
+  <article class="browser">
+    <h2>it conveys your mood</h2>
+    <p>Makeup is an age-old form of self-expression. You can use it to show off your personality as well as your mood. Think about it: When you were going through your goth phase, makeup was essential in letting everyone know it.</p>
+  </article>
+  
+  <article>
+      <h1 class="head-important" style="text-align:center"><bold>IMPORTANT OF BASIC SKINCARE</bold></h1>
+  <article class="browser">
+      <h2><bold>give healthy skin</bold></h2>
+    <p>when we care about basic skincare our skin will be healthy so we should always check the ingredients list on your skincare products, as they can reveal the presence of harmful ingredients like parabens, petrolatum, or phthalates. Avoid products with these ingredients, and look for brands that use organic, natural, or certified cruelty-free ingredients.</p>
+  </article>
+  <article class="browser">
+    <h2>be more confident</h2>
+    <p>when your skin healthy it's can boost our confident to go out without makeup. so we should Stick to a consistent skincare routine, applying your products in the correct order. Start with cleanser, followed by toner or exfoliant, then serum, moisturizer, and sun protection. Remember to wash off makeup and sunscreen before going to bed </p>
+  </article>
+
+</article>
+</div>
+<!-- menus -->
+<div class="container-fluid bg-grey">
+      
+<div id="services" class="container-fluid text-center">
+    <h2><STRONG>WHICH ONE YOU WANNA KNOW ?  </STRONG></h2>
+  <br>
+  <div class="row slideanim" style="padding: 1em ;  align-content: center">
+    <div class="col-sm-6 src-center">
+         <div class="thumbnail" ">
+             <a href="makeup.html">
+                 <img src="pic4.jpg" alt="pic4" style="text-align: center; padding: 1em  ;" width="300" height="100"> 
+             <div class="middle">
+    <div class="text">MAKE-UP</div>
+  </div>
+</a>  
+        
+
+         </div>
+    </div>
+    <div class="col-sm-6 ">
+         <div class="thumbnail">
+             <a href="skincare.html">
+                 <img src="pic5.jpg" alt="pic5" style="text-align: center; padding: 1em ; " width="300" height="500"> 
+             <div class="middle">
+    <div class="text">SKINCARE</div>
+  </div>
+</a>
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+        
+
+        
+
+      
+<footer>
+    <span> <a href="#mainPage" title="To Top">
+    </span>
+  </a> 
+  <p  style="color: white">'" Be confident with your skin "' |  &copy True Beauty website</p>
+
+</footer>
+
+<script>
+  $(document).ready(function(){
+    $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+  
+        var hash = this.hash;
+  
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 900, function(){
+     
+          window.location.hash = hash;
+        });
+      } 
+    });
+    
+    $(window).scroll(function() {
+      $(".slideanim").each(function(){
+        var pos = $(this).offset().top;
+  
+        var winTop = $(window).scrollTop();
+          if (pos < winTop + 600) {
+            $(this).addClass("slide");
+          }
+      });
+    });
+  })
+  </script>
+ <script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+  </script>
+
+</body>
+</html>
